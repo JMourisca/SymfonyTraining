@@ -1,0 +1,31 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    hangman.game_context:
+        class: Training\HangmanBundle\Game\GameContext
+        arguments: ['@session']
+        public: false
+
+    hangman.game.loader.txt:
+        class: Training\HangmanBundle\Game\Loader\TextFileLoader
+        public: false
+
+    hangman.game.loader.xml:
+        class: Training\HangmanBundle\Game\Loader\XmlFileLoader
+        public: false
+
+    hangman.game_wordlist:
+        class: Training\HangmanBundle\Game\WordList
+        calls:
+            - [ addWord, [airplane] ]
+            - [ addLoader, [xml, '@hangman.game.loader.xml'] ]
+            - [ addLoader, [txt, '@hangman.game.loader.txt'] ]
+            - [ loadDictionaries, ['%dictionaries%'] ]
+        public: false
+
+    hangman.game_runner:
+        class: Training\HangmanBundle\Game\GameRunner
+        arguments: ["@hangman.game_context", "@hangman.game_wordlist"]
