@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hangman Game</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/traininghangman/css/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
@@ -17,16 +18,16 @@
         <div id="menu">
             <ul>
                 <li class="first current_page_item">
-                    <a href="/game/">Game</a>
+                    <a href="{{ path('hangman_play') }}">Game</a>
                 </li>
                 <li>
-                    <a href="/signup">Register</a>
+                    <a href="{{ path('hangman_register') }}">Register</a>
                 </li>
                 <li>
                     <a href="/signin">Login</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="{{ path('hangman_contact') }}">Contact</a>
                 </li>
             </ul>
             <br class="clearfix" />

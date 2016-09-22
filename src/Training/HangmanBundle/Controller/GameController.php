@@ -35,7 +35,7 @@ class GameController extends Controller
             return $this->redirectToRoute('hangman_lost');
         }
 
-        dump($game);
+        //dump($game);
 
         return $this->render('@TrainingHangman/game/play.html.twig',
             [

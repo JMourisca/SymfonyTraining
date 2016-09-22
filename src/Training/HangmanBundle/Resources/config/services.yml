@@ -20,7 +20,7 @@ services:
     hangman.game_wordlist:
         class: Training\HangmanBundle\Game\WordList
         calls:
-            - [ addWord, [airplane] ]
+  #          - [ addWord, [airplane] ]
             - [ addLoader, [xml, '@hangman.game.loader.xml'] ]
             - [ addLoader, [txt, '@hangman.game.loader.txt'] ]
             - [ loadDictionaries, ['%dictionaries%'] ]
